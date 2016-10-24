@@ -16,16 +16,23 @@ public class EnvVarToFile {
     private Collection<String> packageNames;
     private Map<String,Collection<String>> classAndMethodNames;
     private Collection<String> groupNames;
-    private Map<String,String> parameters;
+    private Map<String,String> suiteParameters;
+    private Map<String,String> testParameters;
     private String annotationType;
+    private Map<String,String> suiteAttributes;
+    private Map<String,String> testAttributes;
     private int logLevel;
 
     public EnvVarToFile(String projectName){
         this.projectName = projectName;
+
         setPackageNames(new ArrayList<String>());
         setClassAndMethodNames(new HashMap<String,Collection<String>>());
         setGroupNames(new ArrayList<String>());
-        setParameters(new HashMap<String, String>());
+        setSuiteParameters(new HashMap<String, String>());
+        setTestParameters(new HashMap<String, String>());
+        setSuiteAttributes(new HashMap<String, String>());
+        setTestAttributes(new HashMap<String, String>());
         annotationType = "true";
         logLevel = 3;
     }
@@ -38,7 +45,7 @@ public class EnvVarToFile {
                         getPackageNames(),
                         getClassAndMethodNames(),
                         getGroupNames(),
-                        getParameters(),
+                        getSuiteParameters(),
                         annotationType,
                         logLevel);
         File file = new File(".");
@@ -96,15 +103,42 @@ public class EnvVarToFile {
         this.groupNames.add(groupName);
     }
 
-    public Map<String, String> getParameters() {
-        return parameters;
+    public Map<String, String> getSuiteParameters() {
+        return suiteParameters;
     }
 
-    public void setParameters(Map<String, String> parameters) {
-        this.parameters = parameters;
+    public void setSuiteParameters(Map<String, String> suiteParameters) {
+        this.suiteParameters = suiteParameters;
     }
-    public void addParameter(String key, String value){
-        this.parameters.put(key,value);
+    public void addSuiteParameter(String key, String value){
+        this.suiteParameters.put(key,value);
     }
-    //public void write()
+    public void addTestParameter(String key, String value){
+        this.testParameters.put(key,value);
+    }
+    public void addSuiteAttribute(String key,String value){this.suiteAttributes.put(key,value);}
+    public void addTestAttribute(String key,String value){this.testAttributes.put(key, value);}
+    public Map<String, String> getTestParameters() {
+        return testParameters;
+    }
+
+    public void setTestParameters(Map<String, String> testParameters) {
+        this.testParameters = testParameters;
+    }
+
+    public Map<String, String> getSuiteAttributes() {
+        return suiteAttributes;
+    }
+
+    public void setSuiteAttributes(Map<String, String> suiteAttributes) {
+        this.suiteAttributes = suiteAttributes;
+    }
+
+    public Map<String, String> getTestAttributes() {
+        return testAttributes;
+    }
+
+    public void setTestAttributes(Map<String, String> testAttributes) {
+        this.testAttributes = testAttributes;
+    }
 }

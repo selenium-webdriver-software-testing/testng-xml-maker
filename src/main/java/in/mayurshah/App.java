@@ -9,12 +9,17 @@ public class App {
 
     public static void main(String[] args){
         EnvVarToFile envVarToFile = new EnvVarToFile("my-project");
-        //envVarToFile.addPackageName("in.mayurshah");
-        //envVarToFile.addClassAndMethodName("login","correctUserNamePassword","WrongUserNamePassword");
-        //envVarToFile.addGroupName("sanity");
-        //envVarToFile.addParameter("browser","ff");
-        //envVarToFile.addParameter("version","latest");
-        //envVarToFile.addParameter("OS","WIN_8");
+        envVarToFile.addSuiteAttribute("name", System.getenv("name"));
+        envVarToFile.addSuiteAttribute("parallel", System.getenv("parallel"));
+        envVarToFile.addSuiteAttribute("thread-count", System.getenv("thread-count"));
+
+        envVarToFile.addSuiteParameter("remoteURL", System.getenv("remoteURL"));
+        envVarToFile.addSuiteParameter("ReportLocation", System.getenv("ReportLocation"));
+        envVarToFile.addSuiteParameter("baseURL", System.getenv("baseURL"));
+        envVarToFile.addSuiteParameter("internal", System.getenv("internal"));
+
+
+
         envVarToFile.write();
     }
 }
