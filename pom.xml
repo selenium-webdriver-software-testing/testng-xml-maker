@@ -5,8 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>in.mayurshah</groupId>
-    <artifactId>testng-xml-maker</artifactId>
+    <artifactId>testng-xml-maker-maven-plugin</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>maven-plugin</packaging>
 
     <dependencies>
         <dependency>
@@ -14,7 +15,22 @@
             <artifactId>testng</artifactId>
             <version>6.9.13.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <!-- dependencies to annotations -->
+        <dependency>
+            <groupId>org.apache.maven.plugin-tools</groupId>
+            <artifactId>maven-plugin-annotations</artifactId>
+            <version>3.4</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
+
+
 
     <build>
         <plugins>
@@ -30,6 +46,11 @@
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>in.mayurshah</groupId>
+                <artifactId>testng-xml-maker-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
             </plugin>
         </plugins>
     </build>
