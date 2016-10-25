@@ -1,0 +1,1 @@
+testng-xml-maker-maven-plugin will help you generate testng-xml-file from environment variables. Mainly used with parametrized Jenkins job.
