@@ -3,8 +3,6 @@ package in.mayurshah.util;
 import org.testng.reporters.XMLStringBuffer;
 import org.testng.xml.LaunchSuite;
 import org.testng.xml.Parser;
-import org.testng.xml.XmlSuite;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,8 +10,7 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
-import java.util.Properties;
+
 
 /**
  * Created by mayur on 17-10-2016.
@@ -33,17 +30,22 @@ public class CustomSuiteGenerator extends LaunchSuite{
     public File save(File directory) {
         final File suiteFile = new File(directory, "testng.xml");
 
-        saveSuiteContent(suiteFile, getSuiteBuffer());
+        saveSuiteContent(suiteFile);
 
         return suiteFile;
     }
 
-    protected void saveSuiteContent(final File file, final XMLStringBuffer content) {
+    protected void saveSuiteContent(final File file) {
 
         try {
             OutputStreamWriter fw = new OutputStreamWriter(new FileOutputStream(file), Charset.forName("UTF-8"));
-            fw.write(content.getStringBuffer().toString());
+            String xmlop = getSuiteBuffer().getStringBuffer().toString();
+            System.out.println(xmlop);
+            fw.write(xmlop);
+            fw.close();
         } catch (IOException ioe) {
+
+            System.out.print(ioe.getMessage());
             ioe.printStackTrace();
         }
     }
@@ -51,4 +53,5 @@ public class CustomSuiteGenerator extends LaunchSuite{
     public XMLStringBuffer getSuiteBuffer() {
         return suiteBuffer;
     }
+
 }

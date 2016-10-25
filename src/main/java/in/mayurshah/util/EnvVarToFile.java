@@ -94,7 +94,7 @@ public class EnvVarToFile {
         }
         xmlStringBuffer.pop();
         String xmlOP = xmlStringBuffer.toXML();
-        System.out.print(xmlOP);
+        //System.out.print(xmlOP);
         customSuiteGenerator.save(file);
     }
 

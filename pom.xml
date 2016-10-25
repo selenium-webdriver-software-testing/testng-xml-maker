@@ -6,7 +6,7 @@
 
     <groupId>in.mayurshah</groupId>
     <artifactId>testng-xml-maker-maven-plugin</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>maven-plugin</packaging>
 
     <name>selenium-helper</name>
@@ -134,22 +134,9 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>in.mayurshah.App</mainClass>
-                        </manifest>
-                    </archive>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>in.mayurshah</groupId>
                 <artifactId>testng-xml-maker-maven-plugin</artifactId>
-                <version>1.0.0</version>
+                <version>1.0.1</version>
             </plugin>
         </plugins>
     </build>
